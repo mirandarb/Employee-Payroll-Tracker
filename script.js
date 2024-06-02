@@ -1,9 +1,8 @@
-// Get a reference to the #add-employees-btn element
 const addEmployeesBtn = document.querySelector('#add-employees-btn');
 
-// Collect employee data
+
 const collectEmployees = function() {
-  // TODO: Get user input to create and return an array of employee objects
+
   const employeesArray = [];
   
   let addingEmployees = true;
@@ -31,9 +30,9 @@ const employees = collectEmployees();
 console.log(employees);
 
 
-// Display the average salary
+
 const displayAverageSalary = function(employeesArray) {
-  // TODO: Calculate and display the average salary
+  
   let totalSalary = 0;
   
   employeesArray.forEach(employee => {
@@ -49,11 +48,9 @@ const displayAverageSalary = function(employeesArray) {
 displayAverageSalary(employees);
 
 
-// Select a random employee
-const getRandomEmployee = function(employeesArray) {
-  // TODO: Select and display a random employee
-  const randomIndex = Math.floor(Math.random() * employeesArray.length);
 
+const getRandomEmployee = function(employeesArray) {
+  const randomIndex = Math.floor(Math.random() * employeesArray.length);
   const randomEmployee = employeesArray[randomIndex];
 
   console.log(`Congratulation ${randomEmployee.firstName} ${randomEmployee.lastName}! The winner of our random drawing!!`);
@@ -62,21 +59,14 @@ const getRandomEmployee = function(employeesArray) {
 getRandomEmployee(employees);
 
 
-/*
-  ====================
-  STARTER CODE
-  Do not modify any of the code below this line:
-*/
-
-// Display employee data in an HTML table
 const displayEmployees = function(employeesArray) {
-  // Get the employee table
+  
   const employeeTable = document.querySelector('#employee-table');
 
-  // Clear the employee table
+  
   employeeTable.innerHTML = '';
 
-  // Loop through the employee data and create a row for each employee
+
   for (let i = 0; i < employeesArray.length; i++) {
     const currentEmployee = employeesArray[i];
 
@@ -91,7 +81,6 @@ const displayEmployees = function(employeesArray) {
     newTableRow.append(lastNameCell);
 
     const salaryCell = document.createElement("td");
-    // Format the salary as currency
     salaryCell.textContent = currentEmployee.salary.toLocaleString("en-US",{
       style:"currency",
       currency:"USD"
@@ -125,5 +114,4 @@ const trackEmployeeData = function() {
   displayEmployees(employees);
 }
 
-// Add event listener to 'Add Employees' button
 addEmployeesBtn.addEventListener('click', trackEmployeeData);
